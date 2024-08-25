@@ -32,7 +32,7 @@ export const getUserInfo = async ({ userId }: getUserInfoProps) => {
   }
 }
 
-export const signIn = async ({ email, password }: signInProps) => {
+export async function signIn({ email, password }: signInProps) {
   try {
     const { account } = await createAdminClient();
     const session = await account.createEmailPasswordSession(email, password);
@@ -52,7 +52,7 @@ export const signIn = async ({ email, password }: signInProps) => {
   }
 }
 
-export const signUp = async ({ password, ...userData }: SignUpParams) => {
+export async function signUp({ password, ...userData }: SignUpParams) {
   const { email, firstName, lastName } = userData;
   
   let newUserAccount;
